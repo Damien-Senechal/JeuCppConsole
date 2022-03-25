@@ -1,12 +1,16 @@
 #include "Grid.h"
 
+Grid::Grid()
+{
+}
+
 Grid::Grid(int x, int y)
 {
 	setSizeX(x);
 	setSizeY(y);
 	vector<vector<Point>> actualGrid;
 	for (int i = 0; i < getSizeX(); i++) {
-		actualGrid.push_back(vector<Point>(i));
+		actualGrid.push_back(vector<Point>(getSizeY()));
 		for (int j = 0; j < getSizeY(); j++) {
 			actualGrid[i][j] = Point(i, j);
 		}

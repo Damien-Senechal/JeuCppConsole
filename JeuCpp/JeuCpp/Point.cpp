@@ -1,18 +1,50 @@
 #include "Point.h"
 
 
+Point::Point()
+{
+	CoordX = 0;
+	CoordY = 0;
+}
+
 Point::Point(int x, int y)
 {
 	CoordX = x;
 	CoordY = y;
 }
 
-int Point::getCoordX()
+int Point::getCoordX() const
 {
 	return	CoordX;
 }
 
-void Point::setCoordY(int x)
+int Point::getCoordY() const
 {
-	CoordX + x;
+	return CoordY;
+}
+
+int Point::getCharToPrint() const
+{
+	return charToPrint;
+}
+
+void Point::setCoordX(int x)
+{
+	CoordX = x;
+}
+
+void Point::setCoordY(int y)
+{
+	CoordY = y;
+}
+
+void Point::setCharToPrint(int c)
+{
+	charToPrint = c;
+}
+
+ostream& operator<<(ostream& os, Point const& p)
+{
+	os << "[" << p.getCoordX() << "," << p.getCoordY() << "]";
+	return os;
 }

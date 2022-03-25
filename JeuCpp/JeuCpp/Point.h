@@ -1,14 +1,27 @@
 #pragma once
+#include<vector>
+#include<iostream>
+#include<Windows.h>
+
+using namespace std;
+
 class Point
 {
 protected:
-	int CoordX, CoordY;
+	int CoordX, CoordY, charToPrint;
 
 public:
+	Point();
 	Point(int x, int y);
 
-	int getCoordX();
+	int getCoordX() const;
+	int getCoordY() const;
+	int getCharToPrint() const;
 
-	void setCoordY(int x);
+	void setCoordX(int x);
+	void setCoordY(int y);
+	void setCharToPrint(int c);
+
+	friend ostream& operator<<(ostream& os, Point const& p);
 
 };

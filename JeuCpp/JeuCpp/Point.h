@@ -2,7 +2,8 @@
 #include<vector>
 #include<iostream>
 #include<Windows.h>
-#include <stdlib.h>
+#include<stdlib.h>
+#include<string>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ protected:
 public:
 	Point();
 	Point(int x, int y);
+	Point(int x, int y, int c);
 
 	int getCoordX() const;
 	int getCoordY() const;

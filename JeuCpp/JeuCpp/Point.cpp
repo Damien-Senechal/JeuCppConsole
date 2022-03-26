@@ -5,12 +5,21 @@ Point::Point()
 {
 	CoordX = 0;
 	CoordY = 0;
+	charToPrint = 0;
 }
 
 Point::Point(int x, int y)
 {
 	CoordX = x;
 	CoordY = y;
+	charToPrint = 0;
+}
+
+Point::Point(int x, int y, int c)
+{
+	CoordX = x;
+	CoordY = y;
+	charToPrint = c;
 }
 
 int Point::getCoordX() const

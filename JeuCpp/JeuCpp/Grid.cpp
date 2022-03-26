@@ -2,6 +2,8 @@
 
 Grid::Grid()
 {
+	sizeX = 0;
+	sizeY = 0;
 }
 
 Grid::Grid(int x, int y)

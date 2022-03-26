@@ -3,12 +3,8 @@
 
 int main() 
 {
-	Grid g = Grid(10, 10);
+	Grid g = Grid(20, 20);
 
-	for (int i = 0; i < g.getSizeX(); i++) {
-		for (int j = 0; j < g.getSizeY(); j++) {
-			cout << g.getGrid()[i][j];
-		}
-		cout << endl;
-	}
+	Interface i = Interface(1, g);
+	i.display();
 }

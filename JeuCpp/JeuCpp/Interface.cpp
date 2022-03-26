@@ -7,15 +7,27 @@ Interface::Interface()
 
 }
 
-Interface::Interface(Grid grid)
+Interface::Interface(int d, Grid grid)
 {
-	int displayMode = 0;
+	displayMode = d;
 	g = grid;
 }
 
-void Interface::display(int x)
+void Interface::display()
 {
-	if (x == 1) {
-		cout << "lol" << endl;
+	bool update = true;
+	while (update) {
+		if (displayMode == 1) {
+			Grid grid = g;
+
+			for (int i = 0; i < grid.getSizeX(); i++) {
+				for (int j = 0; j < grid.getSizeY(); j++) {
+					cout << grid.getGrid()[i][j];
+				}
+				cout << endl;
+			}
+		}
+		Sleep(200);
+		system("CLS");
 	}
 }

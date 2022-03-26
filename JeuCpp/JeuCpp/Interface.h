@@ -9,8 +9,8 @@ protected:
 
 public:
 	Interface();
-	Interface(Grid grid);
+	Interface(int d, Grid grid);
 
-	void display(int x);
+	void display();
 };
 

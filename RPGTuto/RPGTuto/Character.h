@@ -1,9 +1,5 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
+#include "Inventory.h"
 
 class Character
 {
@@ -17,7 +13,7 @@ protected:
 	int dexterity;
 	int intelligence;
 
-	int level, exp, expNext, hp, hpMax, stamina, staminaMax, damageMin, damageMax, defense;
+	int level, exp, expNext, hp, hpMax, stamina, staminaMax, damageMin, damageMax, defense, luck;
 
 	int statPoints;
 	int skillPoints;
@@ -43,6 +39,7 @@ public:
 	inline const int& getDamageMin() const { return this->damageMin; }
 	inline const int& getDamageMax() const { return this->damageMax; }
 	inline const int& getDefense() const { return this->defense; }
+	inline const int& getLuck() const { return this->luck; }
 
 	inline const int& getStrength() const { return this->strength; }
 	inline const int& getVitality() const { return this->vitality; }
@@ -53,33 +50,34 @@ public:
 	inline const int& getSkillPoints() const { return this->skillPoints; }
 
 	//setters
-	void setName(string n) { name = n; }
+	void setName(string n) { this->name = n; }
 
-	void setXPos(double x) { xPos = x; }
-	void setYPos(double y) { yPos = y; }
+	void setXPos(double x) { this->xPos = x; }
+	void setYPos(double y) { this->yPos = y; }
 
-	void setLevel(int l) { level = l; }
-	void setExp(int e) { exp = e; }
-	void setExpNext(int e) { expNext = e; }
-	void setHp(int h) { hp = h; }
-	void setHpMax(int h) { hpMax = h; }
-	void setStamina(int s) { stamina = s; }
-	void setStaminaMax(int s) { staminaMax = s; }
-	void setDamageMin(int d) { damageMin = d; }
-	void setDamageMax(int d) { damageMax = d; }
-	void setDefense(int d) { defense = d; }
+	void setLevel(int l) { this->level = l; }
+	void setExp(int e) { this->exp = e; }
+	void setExpNext(int e) { this->expNext = static_cast<int>(e); }
+	void setHp(int h) { this->hp = h; }
+	void setHpMax(int h) { this->hpMax = h; }
+	void setStamina(int s) { this->stamina = s; }
+	void setStaminaMax(int s) { this->staminaMax = s; }
+	void setDamageMin(int d) { this->damageMin = d; }
+	void setDamageMax(int d) { this->damageMax = d; }
+	void setDefense(int d) { this->defense = d; }
+	void setLuck(int l) { this->luck = l; }
 
-	void setStrength(int s) { strength = s; }
-	void setVitality(int v) { vitality = v; }
-	void setDexterity(int d) { dexterity = d; }
-	void setIntelligence(int i) { intelligence = i; }
+	void setStrength(int s) { this->strength = s; }
+	void setVitality(int v) { this->vitality = v; }
+	void setDexterity(int d) { this->dexterity = d; }
+	void setIntelligence(int i) { this->intelligence = i; }
 
-	void setStatPoints(int s) { statPoints = s; }
-	void setSkillPoints(int s) { skillPoints = s; }
+	void setStatPoints(int s) { this->statPoints = s; }
+	void setSkillPoints(int s) { this->skillPoints = s; }
 
 	//methods
 	void init(string n);
-	string getAsString() const;
+	void printStats() const;
 	void levelUp();
 };
 

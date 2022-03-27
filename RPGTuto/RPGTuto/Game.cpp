@@ -2,8 +2,8 @@
 
 Game::Game()
 {
-	choice = 0;
-	playing = true;
+	this->choice = 0;
+	this->playing = true;
 }
 
 Game::~Game()
@@ -17,12 +17,12 @@ bool Game::getPlaying() const
 
 void Game::setChoice(int c)
 {
-	choice = c;
+	this->choice = c;
 }
 
 void Game::setPlaying(bool p)
 {
-	playing = p;
+	this->playing = p;
 }
 
 void Game::mainMenu()
@@ -35,8 +35,10 @@ void Game::mainMenu()
 	cout << "3: Level Up" << endl;
 	cout << "4: Rest" << endl;
 	cout << "5: Character Sheet" << endl;
+	cout << endl;
 
 	cout << endl << "Choice : " << endl;
+	cout << endl;
 
 	cin >> answer;
 	setChoice(answer);
@@ -55,9 +57,21 @@ void Game::mainMenu()
 		break;
 	case 4:
 		break;
+	case 5:
+		character.printStats();
+		break;
 	default:
 		break;
 
 	}
 
+}
+
+void Game::initGame()
+{
+	string name;
+	cout << "Enter name for character : ";
+	getline(cin, name);
+
+	character.init(name);
 }

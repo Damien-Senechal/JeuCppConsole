@@ -2,27 +2,29 @@
 
 Character::Character()
 {
-	name = "NONE";
-	xPos = 0.0;
-	yPos = 0.0;
-	level = 0;
-	exp = 0;
-	expNext = 0;
+	this->name = "NONE";
+	this->xPos = 0.0;
+	this->yPos = 0.0;
+	this->level = 0;
+	this->exp = 0;
+	this->expNext = 0;
 
-	strength = 0;
-	vitality = 0;
-	dexterity = 0;
-	intelligence = 0;
+	this->strength = 0;
+	this->vitality = 0;
+	this->dexterity = 0;
+	this->intelligence = 0;
 
-	hp = 0;
-	hpMax = 0;
-	stamina = 0;
-	staminaMax = 0;
-	damageMin = 0;
-	damageMax = 0;
-	defense = 0;
-	statPoints = 0;
-	skillPoints = 0;
+	this->hp = 0;
+	this->hpMax = 0;
+	this->stamina = 0;
+	this->staminaMax = 0;
+	this->damageMin = 0;
+	this->damageMax = 0;
+	this->defense = 0;
+	this->luck = 0;
+
+	this->statPoints = 0;
+	this->skillPoints = 0;
 }
 
 Character::~Character()
@@ -31,45 +33,51 @@ Character::~Character()
 
 void Character::init(string n)
 {
-	name = n;
-	xPos = 0.0;
-	yPos = 0.0;
-	level = 1;
-	exp = 0;
-	expNext = (50/2)*(pow(getLevel(), 2) - 6 * pow(getLevel(), 2) + (17 * getLevel()) - 11);
+	this->name = n;
+	this->xPos = 0.0;
+	this->yPos = 0.0;
+	this->level = 1;
+	this->exp = 0;
+	this->expNext = (50/3) * ( (pow((getLevel() + 1), 3) - 6 * pow((getLevel() + 1), 2)) + 17 * (getLevel() + 1) - 12);
 
-	strength = 5;
-	vitality = 5;
-	dexterity = 5;
-	intelligence = 5;
+	this->strength = 5;
+	this->vitality = 5;
+	this->dexterity = 5;
+	this->intelligence = 5;
 
-	hp = 10;
-	hpMax = 10;
-	stamina = 10;
-	staminaMax = 10;
-	damageMin = 2;
-	damageMax = 4;
-	defense = 1;
-	statPoints = 0;
-	skillPoints = 0;
+	this->hp = 10;
+	this->hpMax = 10;
+	this->stamina = 10;
+	this->staminaMax = 10;
+	this->damageMin = 2;
+	this->damageMax = 4;
+	this->defense = 1;
+	this->luck = 1;
+
+	this->statPoints = 0;
+	this->skillPoints = 0;
 }
 
-/*string Character::getAsString() const
+void Character::printStats() const
 {
-	cout << "= Character Sheet =" << endl;
+	cout << "===== Character Sheet =====" << endl;
 	cout << "= Name : " << getName() << endl;
 	cout << "= Level : " << getLevel() << endl;
 	cout << "= Exp : " << getExp() << endl;
-	cout << "= Exp to next level : " << getExp() << endl;
-	cout << setw(10) << setfill('=') << getExp() << endl;
-	cout << "= Strength : " << getExp() << endl;
-	cout << "= Vitality : " << getExp() << endl;
-	cout << "= Dexterity : " << getExp() << endl;
-	cout << "= Intelligence : " << getExp() << endl;
-	cout << setw(10) << setfill('=') << getExp() << endl;
+	cout << "= Exp to next level : " << getExpNext() << endl;
+	cout << setw(27) << setfill('=') << "" << endl;
+	cout << "= Strength : " << getStrength() << endl;
+	cout << "= Vitality : " << getVitality() << endl;
+	cout << "= Dexterity : " << getDexterity() << endl;
+	cout << "= Intelligence : " << getIntelligence() << endl;
+	cout << setw(27) << setfill('=') << "" << endl;
 	cout << "= HP : " << getHp() << "/" << getHpMax() << endl;
 	cout << "= Stamina : " << getStamina() << "/" << getStaminaMax() << endl;
-}*/
+	cout << "= Damage : " << getDamageMin() << "-" << getDamageMax() << endl;
+	cout << "= Defense : " << getDefense() << endl;
+	cout << "= Luck : " << getLuck() << endl;
+	cout << endl;
+}
 
 void Character::levelUp()
 {
@@ -77,7 +85,7 @@ void Character::levelUp()
 	{
 		setExp(getExp() - getExpNext());
 		setLevel(getLevel() + 1);
-		setExpNext((50 / 2) * (pow(getLevel(), 2) - 6 * pow(getLevel(), 2) + (17 * getLevel()) - 11));
+		setExpNext((50 / 3) * ((pow((getLevel()+1), 3) - 6 * pow((getLevel() + 1), 2)) + 17 * (getLevel() + 1) - 12));
 
 		setStatPoints(getStatPoints() + 1);
 		setSkillPoints(getSkillPoints()+1);

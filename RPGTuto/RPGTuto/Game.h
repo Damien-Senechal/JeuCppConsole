@@ -9,6 +9,8 @@ protected:
 	int choice;
 	bool playing;
 
+	Character character;
+
 public:
 	//constructors
 	Game();
@@ -23,5 +25,7 @@ public:
 
 	//methods
 	void mainMenu();
+	void initGame();
+
 };
 

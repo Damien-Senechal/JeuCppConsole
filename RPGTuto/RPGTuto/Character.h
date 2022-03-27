@@ -79,5 +79,6 @@ public:
 	void init(string n);
 	void printStats() const;
 	void levelUp();
+	string getAsString() const;
 };
 

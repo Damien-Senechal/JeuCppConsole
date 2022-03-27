@@ -4,6 +4,10 @@ Game::Game()
 {
 	this->choice = 0;
 	this->playing = true;
+
+	this->activeCharacter = 0;
+	fileName = "characters.txt";
+
 }
 
 Game::~Game()
@@ -35,6 +39,9 @@ void Game::mainMenu()
 	cout << "3: Level Up" << endl;
 	cout << "4: Rest" << endl;
 	cout << "5: Character Sheet" << endl;
+	cout << "6: Create new character" << endl;
+	cout << "7: Save characters" << endl;
+	cout << "8: Load characters" << endl;
 	cout << endl;
 
 	cout << endl << "Choice : " << endl;
@@ -58,20 +65,58 @@ void Game::mainMenu()
 	case 4:
 		break;
 	case 5:
-		character.printStats();
+		characters[activeCharacter].printStats();
+		break;
+	case 6:
+		cin.ignore();
+		createNewCharacter();
+		saveCharacters();
+		break;
+	case 7:
+		saveCharacters();
+		break;
+	case 8:
+		loadCharacters();
 		break;
 	default:
 		break;
-
 	}
 
 }
 
 void Game::initGame()
 {
-	string name;
-	cout << "Enter name for character : ";
+	createNewCharacter();
+}
+
+void Game::createNewCharacter()
+{
+
+	string name = "";
+	cout << "Character Name : ";
 	getline(cin, name);
 
-	character.init(name);
+	characters.push_back(Character());
+	setActiveCharacter(characters.size() - 1);
+	characters[getActiveCharacter()].init(name);
+}
+
+void Game::saveCharacters()
+{
+	ofstream outFile(getFileName());
+
+	if (outFile.is_open()) 
+	{
+		for (size_t i = 0; i < characters.size(); i++)
+		{
+			outFile << characters[i].getAsString() << "\n";
+		}
+	}
+
+	outFile.close();
+}
+
+void Game::loadCharacters()
+{
+
 }

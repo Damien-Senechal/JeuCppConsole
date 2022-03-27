@@ -1,5 +1,6 @@
 #pragma once
-#include "Item.h"
+#include "Armor.h"
+#include "Weapon.h"
 
 class Inventory
 {

@@ -45,14 +45,14 @@ void Character::init(string n)
 	this->dexterity = 5;
 	this->intelligence = 5;
 
-	this->hp = 10;
-	this->hpMax = 10;
-	this->stamina = 10;
-	this->staminaMax = 10;
-	this->damageMin = 2;
-	this->damageMax = 4;
-	this->defense = 1;
-	this->luck = 1;
+	this->hpMax = (getVitality() * 2) + (getStrength() / 2);
+	this->hp = getHpMax();
+	this->staminaMax = getVitality() + (getStrength() / 2) + (getDexterity() / 3);
+	this->stamina = getStaminaMax();
+	this->damageMin = getStrength();
+	this->damageMax = getStrength() + 2;
+	this->defense = getDexterity() + (getIntelligence()/2);
+	this->luck = getIntelligence();
 
 	this->statPoints = 0;
 	this->skillPoints = 0;

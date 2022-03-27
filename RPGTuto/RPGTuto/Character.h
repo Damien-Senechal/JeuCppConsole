@@ -8,6 +8,10 @@ protected:
 	string name;
 	double xPos, yPos;
 
+	Inventory inventory;
+	Weapon weapon;
+	Armor armor;
+
 	int strength;
 	int vitality;
 	int dexterity;

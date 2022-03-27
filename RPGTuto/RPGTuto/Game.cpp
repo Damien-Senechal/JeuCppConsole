@@ -87,6 +87,8 @@ void Game::mainMenu()
 void Game::initGame()
 {
 	createNewCharacter();
+	Weapon w1(2, 5, "ddk", 1, 100, 100, 1);
+	cout << w1.toString() << endl;
 }
 
 void Game::createNewCharacter()

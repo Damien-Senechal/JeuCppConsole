@@ -12,16 +12,23 @@ protected:
 	Item** itemArray;
 
 	void expand();
-	void init(const int form);
+	void init(const int from = 0);
 
 public:
 	//constructors
 	Inventory();
 	virtual ~Inventory();
+	Inventory(const Inventory& obj);
+	inline int size()const { return getNbrOfItems(); }
+	Item& operator[](const int index);
 
 	//getters
+	inline const int& getCap() const { return this->cap; }
+	inline const int& getNbrOfItems() const { return this->nbrOfItems; }
 
 	//setters
+	void setCap(int c) { this->cap = c; }
+	void setNbrOfItems(int n) { this->nbrOfItems = n; }
 
 	//methods
 	void addItem(const Item& item);

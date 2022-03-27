@@ -1,13 +1,8 @@
-﻿  Armor.cpp
-  Character.cpp
-C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\RPGTuto\Character.cpp(41,25): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\RPGTuto\Character.cpp(88,23): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
-  Game.cpp
-C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\RPGTuto\Game.cpp(102,42): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+﻿  Game.cpp
+C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\RPGTuto\Game.cpp(99,16): warning C4267: 'argument' : conversion de 'size_t' en 'const int', perte possible de données
+C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\RPGTuto\Game.cpp(113,42): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
   Inventory.cpp
-  Item.cpp
   Source.cpp
 C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\RPGTuto\Source.cpp(5,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Weapon.cpp
   Génération de code en cours...
   RPGTuto.vcxproj -> C:\Users\Utilisateur\Documents\GitHub\JeuCppConsole\RPGTuto\x64\Debug\RPGTuto.exe

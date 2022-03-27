@@ -16,6 +16,29 @@ Inventory::~Inventory()
 	delete[] itemArray;
 }
 
+Inventory::Inventory(const Inventory& obj)
+{
+	setCap(obj.cap);
+	setNbrOfItems(obj.nbrOfItems);
+	this->itemArray = new Item * [getCap()];
+
+	for (size_t i = 0; i < getNbrOfItems(); i++)
+	{
+		this->itemArray[i] = obj.itemArray[i]->clone();
+	}
+
+	init(getNbrOfItems());
+}
+
+Item& Inventory::operator[](const int index)
+{
+	if (index < 0 || index >= getNbrOfItems()) 
+	{
+		throw("BAD INDEX !");
+	}
+	return *this->itemArray[index];
+}
+
 void Inventory::expand()
 {
 	this->cap *= 2;

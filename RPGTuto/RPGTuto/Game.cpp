@@ -86,9 +86,20 @@ void Game::mainMenu()
 
 void Game::initGame()
 {
+	Inventory inv;
+	inv.addItem(Weapon(0, 0, "Wep1", 0, 0, 0, 0));
+	inv.addItem(Weapon(0, 0, "Wep2", 0, 0, 0, 0));
+	inv.addItem(Weapon(0, 0, "Wep3", 0, 0, 0, 0));
+	inv.addItem(Armor(0, 0, "Arm1", 0, 0, 0, 0));
+	inv.addItem(Armor(0, 0, "Arm2", 0, 0, 0, 0));
+	inv.addItem(Armor(0, 0, "Arm3", 0, 0, 0, 0));
+
+	for (size_t i = 0; i < inv.size(); i++)
+	{
+		cout << inv[i].debugPrint() << endl;
+	}
+
 	createNewCharacter();
-	Weapon w1(2, 5, "ddk", 1, 100, 100, 1);
-	cout << w1.toString() << endl;
 }
 
 void Game::createNewCharacter()
